@@ -30,7 +30,6 @@ public class TodoDemoController {
     }
 
     @RequestMapping("/update")
-
     public String updateTodo(@ModelAttribute TodoListViewModel requestItems) {
         ArrayList<TodoItem> todoList = (ArrayList<TodoItem>) repository.findAll();
         ArrayList<String> names = new ArrayList<>();
@@ -42,21 +41,16 @@ public class TodoDemoController {
             repository.save(item);
         }
 
-
         for(TodoItem todoItem : todoList){
             if(todoItem.isComplete()){
                 repository.delete(todoItem);
             }
             else{
-                names.add(todoItem.getName());
+//                names.add(todoItem.getName());
             }
         }
-
         return "redirect:/";
-
     }
-
-
     @RequestMapping("/edit/{id}")
 //    @ResponseBody
     public String editTodo(Model model, @PathVariable("id") long id) {
