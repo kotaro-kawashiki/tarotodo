@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Time;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 @Entity
 public class TodoItem {
@@ -14,6 +19,10 @@ public class TodoItem {
     private String category;
     private String name;
     private boolean complete;
+    //2018/8/8 added
+//    private Date date;
+//    private Time time;
+
 
     public TodoItem() {}
 
@@ -21,6 +30,12 @@ public class TodoItem {
         this.category = category;
         this.name = name;
         this.complete = false;
+        //2018/8/8 added
+//        Calendar cl = Calendar.getInstance();
+//        //SimpleDateFormatクラスでフォーマットパターンを設定する
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+//        this.date = sdf.parse(sdf.format(cl.getTime()));
+//        this.time = time;
     }
 
     @Override
@@ -60,7 +75,7 @@ public class TodoItem {
     public boolean isComplete() {
         return complete;
     }
-    
+
     public void setComplete(boolean complete) {
         this.complete = complete;
         return;
